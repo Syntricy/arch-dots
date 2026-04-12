@@ -1,0 +1,81 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+
+  "modules-left": ["hyprland/workspaces", "custom/spotify"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["bluetooth", "network", "clock"],
+
+  "hyprland/workspaces": {
+   "format": "{id}",                       // zeigt die Workspace-Nummer
+   "disable-scroll": true,                 // optional: kein Scroll-Wechsel
+   "all-outputs": false                    // nur auf diesem Monitor
+  },
+  
+  "hyprland/window": {
+   "format": "{class}",
+   "max-length":60,
+   "seperate-outputs": true,
+   "rewrite": {
+    "^$": "focus"
+    }
+   },
+"clock": {
+  "format": "{:%H:%M    %a, %d.%m.}",
+  "interval": 1,
+  "tooltip-format": "<tt>{calendar}</tt>",
+  "on-click": "gtk-launch google-calendar.desktop",
+  "calendar": {
+    "format": {
+      "today": "<span color='#fAfBfC'><b>{}</b></span>"
+    }
+  }
+},
+
+ 
+
+
+  "network": {
+  "format-wifi": "",
+  "format-disconnected": "󰤭",          
+  "format-ethernet": " ",
+  "tooltip-format-disconnected": "Offline",
+  "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+  "tooltip-format-ethernet": "{ifname}",
+  "on-click": "kitty nmtui"
+  },
+
+  "bluetooth": {
+    "format-on": "󰂯",
+    "format-off": "BT-off",
+    "format-disabled": "󰂲",
+    "format-connected-battery": "{device_battery_percentage}% 󰂯",
+    "format-alt": "{device_alias} 󰂯",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+    "on-click": "blueman-manager",
+    "on-click-right": "blueman-manager"
+  },
+
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/spotify.sh",
+    "interval": 2,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "tooltip": true
+  },
+
+  "custom/uptime": {
+  "exec": "~/.config/waybar/scripts/uptime.sh",
+  "interval": 10,
+  "tooltip": true,
+  "tooltip-format": "Uptime"
+},
+"custom/space_r": { "format": "  " }
+ },
+}
+

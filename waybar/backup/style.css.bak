@@ -1,0 +1,251 @@
+@import "mocha.css";
+
+/* Base */
+* {
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+/* Waybar root */
+window#waybar {
+  background-color: transparent;
+}
+
+/* Module */
+#waybar .module {
+  color: @text;
+  padding: 0 0;               /* keep zero padding explicitly */
+  margin: -10px 7px;          /* nur eine margin-Definition */
+  border: 0;                  /* vorher: '2px' ohne Stil, ist sinnlos */
+}
+
+#waybar .module:hover {
+  color: @subtext1;
+}
+
+/* Optional Window block (wenn du window modul nutzt) */
+#window {
+  color: @text;
+  background-color: @base;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border: 2px solid @mauve;
+}
+
+/* Buttons (z.B. Workspaces) */
+button {
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 2px;
+  padding: 0 5px;
+  margin: 5px 0;
+}
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px transparent;
+}
+
+/* Workspaces (Hyprland) */
+#workspaces button {
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 8px;
+  margin: 1em 0;
+  padding: 0 3px;
+  color: @text;
+  /* animation: ws_normal 20s ease-in-out 1;  // deaktiviert, keine @keyframes */
+}
+
+#workspaces button.active {
+    background: #e6b673;   /* warmes Orange passend zum Wallpaper */
+    color: #1a1a1a;        /* dunkler Text für Kontrast */
+    border-radius: 4.5pt;
+    padding: 0 8px;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button:hover {
+    background: #d1a463;
+    color: #1a1a1a;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+/* River tags (nur falls du river nutzt) */
+#tags button {
+  color: @mauve;
+  background: @base;
+  border-radius: 0;
+  padding: 0;
+  margin: 5px 0;
+}
+#tags button.occupied { color: @mantle; }
+#tags button.focused   { color: @sky; }
+#tags button.urgent    { color: @red; }
+
+/* Common widgets */
+#clock { font-size: 14px; }
+#custom-notification { color: @text; }
+
+/* Group modules (müssen in waybar.jsonc so benannt sein) */
+#group-10,
+#group-9,
+#group-8,
+#group-7,
+#group-6,
+#group-5,
+#group-4,
+#group-3,
+#group-2,
+#group-1 {
+  border-radius: 6px;
+  background: @base;
+  margin: 0 3px;
+  border: 2px solid transparent; /* sichtbarer Rahmen? Farbe hier setzen */
+}
+
+/* Custom launchers */
+#custom-discord,
+#custom-reddit,
+#custom-instagram,
+#catppuccin-theme,
+#custom-whatsapp,
+#custom-firefox,
+#custom-spotify,
+#custom-github {
+  border: 0;            /* vorher: 2px ohne Stil */
+  font-size: 14px;
+}
+
+/* Misc sizes */
+#custom-keybinds,
+#bluetooth,
+#custom-pkg-aur { font-size: 13px; }
+
+#custom-next,
+#custom-pause,
+#custom-previous { font-size: 15px; }
+
+/* Status colors */
+#network.disconnected,
+#pulseaudio.muted,
+#wireplumber.muted { color: @red; }
+
+#battery.charging,
+#battery.plugged { color: @green; }
+
+label:focus { background-color: @base; }
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Optional: echte Blink-Animation, wenn du willst */
+@keyframes blink {
+  from { opacity: 1; }
+  to   { opacity: 0.4; }
+}
+
+/* === Farb-Akzent: warmes Orange, passend zu deinem Wallpaper === */
+@define-color accent #e6b673;
+@define-color accent-hover #d1a463;
+@define-color text #e5e5e5;
+
+/* --------------------- */
+/*   Container-Reset     */
+/* --------------------- */
+.modules-right > *,
+.modules-left  > *,
+.modules-center > * {
+  background-color: rgba(0,0,0,0) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 6px !important;   /* nur etwas Abstand */
+  border-radius: 0 !important;
+}
+
+
+/* Falls Gruppen verwendet werden (group/group-X) */
+#group-group-1,
+#group-group-2,
+#group-group-3,
+#group-group-4,
+#group-group-5 {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 6px !important;
+  border-radius: 0 !important;
+}
+
+/* --------------------- */
+/*   Rechte Module       */
+/* --------------------- */
+#bluetooth,
+#custom-uptime,
+#pulseaudio,
+#wireplumber,
+#battery,
+#clock {
+  background-color: rgba(0,0,0,0) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 8px !important;
+  margin: 0 2px !important;
+  border-radius: 6px;
+  color: #e6b673;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+/* Hover-Effekt: dezent, warmes Leuchten */
+#bluetooth:hover,
+#custom-uptime:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#battery:hover,
+#clock:hover {
+  background-color: rgba(230,182,115,0.12);
+  color: #d1a463;
+}
+
+/* --------------------- */
+/*   Workspaces          */
+/* --------------------- */
+#workspaces button {
+  color: @text;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 0 6px;
+  margin: 0 2px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#workspaces button.active {
+  background-color: @accent;
+  color: #1a1a1a;
+}
+
+#workspaces button:hover {
+  background-color: @accent-hover;
+  color: #1a1a1a;
+}
+
+/* --------------------- */
+/*   Allgemeines Layout  */
+/* --------------------- */
+window#waybar {
+  background-color: rgba(15, 15, 20, 0.6);
+  color: @text;
+  font-size: 12px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  border: none;
+  box-shadow: none;
+}
+

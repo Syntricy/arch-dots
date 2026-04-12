@@ -1,0 +1,145 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+/* =====================================
+   Hybrid Minimal – clean & lesbar
+   ===================================== */
+
+* {
+  font-size: 14px;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+}
+
+window#waybar {
+  background: transparent;
+  color: #DDE4E8;
+}
+
+/* ---------- Container ---------- */
+/* Links / Rechts: dezente Bubbles */
+.modules-left,
+.modules-right {
+  padding: 4px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.16);
+  border: none;
+  box-shadow: none;
+}
+
+/* Mitte: komplett transparent, nur Text */
+.modules-center {
+  padding: 4px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Abstände */
+.modules-left   { margin: 6px 0 3px 8px; }
+.modules-center { margin: 6px 0 3px 0;  }
+.modules-right  { margin: 6px 8px 3px 0; }
+
+/* ---------- Tooltips ---------- */
+tooltip {
+  background: rgba(0, 0, 0, 0.78);
+  color: #EEF3F6;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.22);
+}
+
+/* ---------- Module ---------- */
+#clock,
+#bluetooth,
+#network,
+#custom-spotify,
+#custom-uptime,
+#window {
+  color: #DDE4E8;
+  padding: 0 8px;
+  font-weight: 600;
+  transition: opacity .15s, color .15s;
+}
+
+/* Hover: nur heller, keine Farbe */
+#clock:hover,
+#bluetooth:hover,
+#network:hover,
+#custom-spotify:hover,
+#custom-uptime:hover {
+  color: #FFFFFF;
+}
+
+/* Fenstertitel in der Mitte, ohne Bubble */
+#window {
+  background: transparent;
+  padding: 0 10px;
+}
+
+/* ---------- Custom Wallpaper Button ---------- */
+#custom-wallpaper {
+  background: rgba(0,0,0,0.22);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #E7EEF2;
+  font-size: 16px;
+  transition: background 0.2s ease, color 0.2s ease;
+  border: none;
+}
+#custom-wallpaper:hover {
+  background: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+}
+
+/* ---------- Workspaces: mehr Abstand zwischen Buttons ---------- */
+#workspaces {
+  padding: 0 3px;
+}
+
+#workspaces button {
+  all: unset;
+  min-width: 20px;
+  padding: 2px 6px;
+  margin: 0 5px;          /* etwas mehr Abstand zwischen den Buttons */
+  border-radius: 6px;
+
+  background: transparent;
+  color: #D1D8DE;
+  transition: background .15s ease, color .15s ease, opacity .15s ease;
+}
+
+/* Hover: leichtes Grau */
+#workspaces button:hover {
+  background: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+}
+
+/* Active: etwas deutlicher, aber neutral */
+#workspaces button.active {
+  background: rgba(255,255,255,0.18);
+  color: #FFFFFF;
+}
+
+/* Empty */
+#workspaces button.empty {
+  opacity: .45;
+}
+#workspaces button.empty:hover {
+  opacity: .75;
+}
+
+/* Urgent */
+#workspaces button.urgent {
+  background: rgba(200,60,60,0.70);
+  color: #FFFFFF;
+}
+
+/* ---------- Zustände ---------- */
+#network.disconnected { opacity: .6; }
+#custom-spotify.paused { opacity: .75; }
+
+/* Extra Abstand rechts vom Musik-Icon */
+#custom-spotify {
+  margin-right: 6px;
+}
+

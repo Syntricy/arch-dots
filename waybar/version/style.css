@@ -1,0 +1,134 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+/* =========================
+   Ultra Minimal – Neutral Theme
+   ========================= */
+
+* {
+  font-size: 14px;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+}
+
+window#waybar {
+  background: transparent;
+  color: #D9E1E7; /* neutral hellgrau-blau */
+}
+
+/* ---------- Container (fast unsichtbar) ---------- */
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 4px;
+  border-radius: 10px;
+
+  /* HIER: ultra neutraler Hintergrund */
+  background: rgba(0, 0, 0, 0.18);
+
+  /* ganz leichter Rand */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  /* super dezenter shadow */
+  box-shadow: 0 0 4px rgba(0,0,0,.35);
+}
+
+/* Abstände */
+.modules-left   { margin: 6px 0 3px 8px; }
+.modules-center { margin: 6px 0 3px 0;  }
+.modules-right  { margin: 6px 8px 3px 0; }
+
+/* ---------- Module ---------- */
+#clock,
+#bluetooth,
+#network,
+#custom-spotify,
+#custom-uptime,
+#window {
+  color: #D9E1E7;
+  padding: 0 8px;
+  font-weight: 600;
+  transition: opacity .15s, color .15s;
+}
+
+/* neutraler Hover (keine Farbe) */
+#clock:hover,
+#bluetooth:hover,
+#network:hover,
+#custom-spotify:hover,
+#custom-uptime:hover {
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+/* Fenstertitel */
+#window {
+  background: transparent;
+  box-shadow: none;
+  padding: 0 10px;
+}
+
+/* ---------- Custom Wallpaper Button ---------- */
+#custom-wallpaper {
+  background: rgba(0,0,0,0.25);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #E5EEF3;
+  font-size: 16px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+#custom-wallpaper:hover {
+  background: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+}
+
+/* ---------- Zustände ---------- */
+#network.disconnected { opacity: .6; }
+#custom-spotify.paused { opacity: .75; }
+
+#window.long, #custom-spotify.long {
+  opacity: .9;
+}
+
+/* ---------- Workspaces minimal flach ---------- */
+#workspaces {
+  padding: 0 3px;
+}
+
+#workspaces button {
+  all: unset;
+  min-width: 20px;
+  margin: 0 3px;
+  padding: 2px 6px;
+  border-radius: 6px;
+
+  background: rgba(255,255,255,0.05); /* sehr neutral */
+  color: #D1D8DF;
+
+  transition: background .15s ease, color .15s ease, opacity .15s ease;
+}
+
+/* Hover */
+#workspaces button:hover {
+  background: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+}
+
+/* Aktiv (heller, aber nicht farbig) */
+#workspaces button.active {
+  background: rgba(255,255,255,0.20);
+  color: #FFFFFF;
+}
+
+/* Empty */
+#workspaces button.empty {
+  opacity: .45;
+}
+#workspaces button.empty:hover {
+  opacity: .75;
+}
+
+/* Urgent */
+#workspaces button.urgent {
+  background: rgba(200,60,60,0.65);
+  color: #FFFFFF;
+}
+
