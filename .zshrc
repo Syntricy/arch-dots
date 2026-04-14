@@ -116,3 +116,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 export GTK_THEME=Adwaita:dark
 export QT_STYLE_OVERRIDE=adwaita-dark
+
+
+export PATH=$PATH:/home/syntricy/.spicetify
+export PATH=$PATH:~/.spicetify
